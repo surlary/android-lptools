@@ -5,7 +5,10 @@ CC=clang
 CPP=clang++
 AR=ar
 STRIP=strip
-CFLAGS=-static
+case "$OSTYPE" in
+  linux*) CFLAGS=-static ;;
+  *)      CFLAGS= ;;
+esac
 
 cd lib
 cd liblog
